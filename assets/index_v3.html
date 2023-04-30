@@ -24,11 +24,10 @@
 
     #btnGo {
       width: 100%;
-      font-size: 1.5em;
     }
 
     #list a {
-      margin: 1em;
+      margin: 0.25em;
     }
 
     footer {
@@ -37,8 +36,12 @@
       width: 100%;
     }
 
+    input {
+      padding: 5px;
+    }
+
     footer div {
-      padding: 20px;
+      padding: 1em;
       margin: auto;
       text-align: center;
     }
@@ -67,9 +70,7 @@
   <main>
     <div class="box">
       <input id="txtURL" type="text" value="www.google.com" autofocus>
-    </div>
-    <div class="box">
-      <button id="btnGo">Lets Go</button>
+      <input type="button" value="Go" id="btnGo" />
     </div>
     <div class="box">
       <span>Switch Line:</span>
@@ -158,7 +159,6 @@
           ['twitch', 'www.twitch.tv'],
           ['reddit', 'www.redis.com'],
           ['github', 'www.github.com'],
-          ['facebook', 'www.facebook.com'],
           ['linkedin', 'www.linkedin.com'],
         ]
 
@@ -168,7 +168,7 @@
             url = url || `www.${id}.com/`
             return `\
   <a rel="noopener noreferrer" href=./-----https://${url}>\
-  <img width=64 height=64 src=__sys__/assets/ico/${id}.png></a>`
+  <img width=32 height=32 src=__sys__/assets/ico/${id}.png></a>`
           }).join('')
         }
 
@@ -204,8 +204,7 @@
 
   <footer>
     <div>
-      Copyright ©2023 <a href="https://github.com/keivanipchihagh" target="_blank">keivanipchihagh</a>. All Rights
-      Reserved.
+      Copyright ©2023 <a href="https://github.com/keivanipchihagh" target="_blank">keivanipchihagh</a>. All Rights Reserved.
     </div>
     <script ync src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5660349373091698"
       crossorigin="anonymous">
