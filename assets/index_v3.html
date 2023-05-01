@@ -14,11 +14,10 @@
     #txtURL {
       width: 100%;
       text-indent: 0.5em;
-      padding: 0.25em 0;
     }
 
     #btnGo {
-      width: 100%;
+      width: 20%;
     }
 
     #list a {
@@ -31,10 +30,6 @@
       width: 100%;
     }
 
-    input {
-      margin: 5px;
-    }
-
     footer div {
       padding: 1em;
       margin: auto;
@@ -43,6 +38,7 @@
 
     main {
       position: absolute;
+      width: 30%;
       left: 50%;
       top: 50%;
       -webkit-transform: translate(-50%, -50%);
@@ -76,15 +72,6 @@
       font-size: 20px;
     }
 
-    /*Resize the wrap to see the search bar change!*/
-    .wrap{
-      width: 30%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
   </style>
 
   <script async src="https://fundingchoicesmessages.google.com/i/pub-5660349373091698?ers=1"
@@ -98,21 +85,10 @@
 </head>
 
 <body>
-
   <main>
-
-    <!-- <div class="wrap">
-      <div class="search">
-         <input type="text" class="searchTerm" placeholder="What are you looking for?">
-         <button type="submit" class="searchButton">
-           <i class="fa fa-search"></i>
-        </button>
-      </div>
-   </div> -->
-
-    <div class="box">
-      <input id="txtURL" type="text" value="www.google.com" autofocus>
-      <input type="button" value="Go" id="btnGo" />
+    <div class="search">
+      <input id="txtURL" type="text" class="searchTerm" placeholder="What are you looking for?" autofocus>
+      <input id="btnGo" class="searchButton" type="submit" value="Go" />
     </div>
     <div class="box">
       <span>Switch Line:</span>
