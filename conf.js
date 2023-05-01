@@ -84,9 +84,11 @@ jsproxy_config({
   /**
    * URL custom handling (in design)
    */
-  url_handler: {
-    'https://www.pornhub.com/': {
-      redir: 'https://blog.51sec.org/'
-    },
-  }
+  // url_handler: {
+  //   'https://www.pornhub.com/': {
+  //     content: 'Dude!',
+  //     // redir: 'https://github.com/keivanipchihagh',
+  //     // replace: 'https://www.google.com/keivanipchihagh'
+  //   },
+  // }
 })
