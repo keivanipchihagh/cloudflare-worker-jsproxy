@@ -7,12 +7,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
   <base target="_blank">
   <style>
-    body {
-      padding: 0 0.5em;
-    }
-
     .box {
-      margin-top: 1em;
+      margin: 1em;
     }
 
     #txtURL {
@@ -81,13 +77,14 @@
     }
 
     /*Resize the wrap to see the search bar change!*/
-    .wrap {
+    .wrap{
       width: 30%;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
+
   </style>
 
   <script async src="https://fundingchoicesmessages.google.com/i/pub-5660349373091698?ers=1"
@@ -102,20 +99,25 @@
 
 <body>
 
-  <div class="wrap">
-    <!-- Search box -->
-    <div class="search">
-      <input type="text" class="searchTerm" placeholder="What are you looking for?">
-      <button type="submit" class="searchButton">
-        <i class="fa fa-search"></i>
-      </button>
+  <main>
+
+    <!-- <div class="wrap">
+      <div class="search">
+         <input type="text" class="searchTerm" placeholder="What are you looking for?">
+         <button type="submit" class="searchButton">
+           <i class="fa fa-search"></i>
+        </button>
+      </div>
+   </div> -->
+
+    <div class="box">
+      <input id="txtURL" type="text" value="www.google.com" autofocus>
+      <input type="button" value="Go" id="btnGo" />
     </div>
-    <!-- Switch line -->
     <div class="box">
       <span>Switch Line:</span>
       <select id="selNode"></select>
     </div>
-    <!-- List -->
     <div class="box" id="list">
     </div>
     <div>
@@ -207,8 +209,8 @@
             let [id, url] = v
             url = url || `www.${id}.com/`
             return `\
-    <a rel="noopener noreferrer" href=./-----https://${url}>\
-    <img width=32 height=32 src=__sys__/assets/ico/${id}.png></a>`
+  <a rel="noopener noreferrer" href=./-----https://${url}>\
+  <img width=32 height=32 src=__sys__/assets/ico/${id}.png></a>`
           }).join('')
         }
 
@@ -240,12 +242,11 @@
         }
       </script>
     </div>
-  </div>
+  </main>
 
   <footer>
     <div>
-      Copyright ©2023 <a href="https://github.com/keivanipchihagh" target="_blank">keivanipchihagh</a>. All Rights
-      Reserved.
+      Copyright ©2023 <a href="https://github.com/keivanipchihagh" target="_blank">keivanipchihagh</a>. All Rights Reserved.
     </div>
     <script ync src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5660349373091698"
       crossorigin="anonymous">
