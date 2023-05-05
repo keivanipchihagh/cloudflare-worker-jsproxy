@@ -2,7 +2,7 @@ jsproxy_config({
   // The version of the current configuration (recorded in the log for troubleshooting)
   // Every time the configuration is modified, the value needs to be increased, otherwise it will not take effect.
   // By default, the configuration is automatically downloaded every 5 minutes. If you want to verify immediately, you can access it in private mode.
-  ver: '101',
+  ver: '102',
 
   // Accelerate static resources of commonly used websites through CDN (experimental)
   static_boost: {
@@ -61,10 +61,9 @@ jsproxy_config({
   node_acc: 'cfworker',
 
   /**
-   * Static resource CDN address
-   * Used to speed up resource access in the `assets` directory
+   * Static resource CDN address (Used to speed up resource access in the `assets` directory)
    */
-  // assets_cdn: 'https://cdn.jsdelivr.net/gh/zjcqoo/zjcqoo.github.io@master/assets/',
+  assets_cdn: 'https://cdn.jsdelivr.net/gh/keivanipchihagh/jsproxy@main/assets/',
 
   // Open when testing locally, otherwise access is online
   assets_cdn: 'assets/',
@@ -83,9 +82,9 @@ jsproxy_config({
   /**
    * URL custom handling (in design)
    */
-  url_handler: {
-    'https://www.pornhub.com/': { content: 'Umm... that\' not gonna happen U_U' },
-    'https://www.youporn.com/': { content: 'Umm... that\' not gonna happen U_U' },
-    'https://www.xvideos.com/': { content: 'Umm... that\' not gonna happen U_U' },
-  }
+  // url_handler: {
+  //   'https://www.pornhub.com/': { content: 'Umm... that\' not gonna happen U_U' },
+  //   'https://www.youporn.com/': { content: 'Umm... that\' not gonna happen U_U' },
+  //   'https://www.xvideos.com/': { content: 'Umm... that\' not gonna happen U_U' },
+  // }
 })

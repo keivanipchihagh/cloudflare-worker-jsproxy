@@ -1,5 +1,5 @@
-# HTTP 返回头存在 access-control-allow-origin: * 的站点，不走代理直接连接
-# 收集了部分，实验中...
+# If the HTTP return header has "access-control-allow-origin: *" connect directly without proxy
+# Collected parts, experimenting...
 
 # google
 ssl.google-analytics.com

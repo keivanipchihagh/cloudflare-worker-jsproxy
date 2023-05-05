@@ -1,10 +1,13 @@
 'use strict'
 
-/**
- * static files (404.html, sw.js, conf.js)
- */
+// static files (404.html, sw.js, conf.js)
 const ASSET_URL = 'https://keivanipchihagh.github.io/jsproxy/'
-
+// HTTP Basic Authentication
+const AUTH_ENABLE = true
+const AUTH_USERS = {
+  "user": "pass"
+}
+// Other
 const JS_VER = 10
 const MAX_RETRY = 1
 
@@ -42,6 +45,30 @@ function newUrl(urlStr) {
 }
 
 
+/**
+ * Checks authorization header for Basic Authentication
+ * @param {Request} request
+ * @returns {boolean} `true` if request is authorized, `false` if otherwise.
+ */
+function checkBasicAuth(request) {
+  const header = new Map(request.headers)
+
+  if (!header.has("authorization"))
+    return false;
+
+  const auth = header.get("authorization").split(' ')
+  if (auth.length != 2 || auth[0] != "Basic")
+    return false;
+
+  // check credentials
+  const decoded = atob(auth[1]).split(":")
+  if (decoded.length != 2)
+    return false;
+  else
+    return decoded[0] in AUTH_USERS && AUTH_USERS[decoded[0]] === decoded[1]
+}
+
+
 addEventListener('fetch', e => {
   const ret = fetchHandler(e)
     .catch(err => makeRes('cfworker error:\n' + err.stack, 502))
@@ -53,6 +80,12 @@ addEventListener('fetch', e => {
  * @param {FetchEvent} e 
  */
 async function fetchHandler(e) {
+
+  // HTTP Basic Authentication
+  if (AUTH_ENABLE && !checkBasicAuth(e.request)) {
+    return new Response("", {status: 401, headers: {"WWW-Authenticate": 'Basic realm="Authentication Required"'}})
+  }
+
   const req = e.request
   const urlStr = req.url
   const urlObj = new URL(urlStr)
