@@ -2,7 +2,7 @@ jsproxy_config({
   // The version of the current configuration (recorded in the log for troubleshooting)
   // Every time the configuration is modified, the value needs to be increased, otherwise it will not take effect.
   // By default, the configuration is automatically downloaded every 5 minutes. If you want to verify immediately, you can access it in private mode.
-  ver: '102',
+  ver: '103',
 
   // Accelerate static resources of commonly used websites through CDN (experimental)
   static_boost: {
@@ -41,6 +41,7 @@ jsproxy_config({
         // Paid version (high weight)
         'node-cfworker-2.etherdream.com': 4,
         // free version (low weight, share some cost - 100,000 free requests per account per day, but there is a frequency limit)
+        'web.keivanipchihagh.com': 2,
         'b.007.workers.dev': 1,
         'b.hehe.workers.dev': 1,
         'b.lulu.workers.dev': 1,
