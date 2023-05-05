@@ -2,7 +2,7 @@ jsproxy_config({
   // The version of the current configuration (recorded in the log for troubleshooting)
   // Every time the configuration is modified, the value needs to be increased, otherwise it will not take effect.
   // By default, the configuration is automatically downloaded every 5 minutes. If you want to verify immediately, you can access it in private mode.
-  ver: '100',
+  ver: '101',
 
   // Accelerate static resources of commonly used websites through CDN (experimental)
   static_boost: {
@@ -12,23 +12,24 @@ jsproxy_config({
 
   // node configuration
   node_map: {
-   'mysite': {
-      label: 'Local',
+   'local': {
+      label: 'local',
       lines: {
-        [location.host]: 1,
+        [location.host]: 1, // Current worker
       }
     },
-    'demo-hk': {
-      label: 'Demo - Hongkong',
+    'hk': {
+      label: 'Hongkong',
       lines: {
         // host:weight
         'node-aliyun-hk-1.etherdream.com:8443': 1,
         'node-aliyun-hk-2.etherdream.com:8443': 2,
       }
     },
-    'demo-sg': {
-      label: 'Demo - Singapore',
+    'sg': {
+      label: 'Singapore',
       lines: {
+        // host:weight
         'node-aliyun-sg.etherdream.com:8443': 1,
       }
     },
@@ -39,9 +40,7 @@ jsproxy_config({
       lines: {
         // Paid version (high weight)
         'node-cfworker-2.etherdream.com': 4,
-
-        // free version (low weight, share some cost)
-        // 100,000 free requests per account per day, but there is a frequency limit
+        // free version (low weight, share some cost - 100,000 free requests per account per day, but there is a frequency limit)
         'b.007.workers.dev': 1,
         'b.hehe.workers.dev': 1,
         'b.lulu.workers.dev': 1,
@@ -53,8 +52,8 @@ jsproxy_config({
   /**
    * default node
    */
-  node_default: 'mysite',
-  // node_default: /jsproxy-demo\.\w+$/.test(location.host) ? 'demo-hk' : 'mysite',
+  node_default: 'local',
+  // node_default: /jsproxy-demo\.\w+$/.test(location.host) ? 'hk' : 'local',
 
   /**
    * Acceleration node
@@ -71,10 +70,10 @@ jsproxy_config({
   assets_cdn: 'assets/',
 
   // Home path
-  index_path: 'index_v3.html',
+  index_path: 'index.html',
 
   // List of sites that support CORS (experimental...)
-  direct_host_list: 'cors_v1.txt',
+  direct_host_list: 'cors.txt',
 
   /**
    * Customize the HTML of the injected page
@@ -84,11 +83,9 @@ jsproxy_config({
   /**
    * URL custom handling (in design)
    */
-  // url_handler: {
-  //   'https://www.pornhub.com/': {
-  //     content: 'Dude!',
-  //     // redir: 'https://github.com/keivanipchihagh',
-  //     // replace: 'https://www.google.com/keivanipchihagh'
-  //   },
-  // }
+  url_handler: {
+    'https://www.pornhub.com/': { content: 'Umm... that\' not gonna happen U_U' },
+    'https://www.youporn.com/': { content: 'Umm... that\' not gonna happen U_U' },
+    'https://www.xvideos.com/': { content: 'Umm... that\' not gonna happen U_U' },
+  }
 })
